@@ -7,7 +7,7 @@ var client = fbapi.user(null);
 
 //var mongojs=require('mongojs');
 //var db=mongojs("26jan",["svc1"]);
-var db='mongodb://aashi23:tiger@ds049537.mongolab.com:49537/svc'
+mongoose.connect('mongodb://aashi23:tiger@ds049537.mongolab.com:49537/svc')
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
