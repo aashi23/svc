@@ -30,7 +30,7 @@ app.get("/serviceClients",function(req,res){
 app.post("/serviceClients",function(req,res){
   var svc=req.body;
     console.log(svc);
-    db.svc1.insert(req.body,function(err,doc){
+    db.svc.insert(req.body,function(err,doc){
     res.json(doc);
     });
 });
@@ -41,7 +41,7 @@ app.post("/serviceClients",function(req,res){
 app.get("/serviceClients/:id",function(req,res){
 var id=req.params.id;
     console.log(id);
-    db.svc1.findOne({_id : mongojs.ObjectId(id)},function(err,doc){
+    db.svc.findOne({_id : mongojs.ObjectId(id)},function(err,doc){
         var input =doc.name;
         client.get(input).info(function(err, data){
         output=data.name; 
@@ -58,7 +58,7 @@ var id=req.params.id;
 app.delete("/serviceClients/:id",function(req,res){
   var id=req.params.id;
     console.log(id);
-    db.svc1.remove({_id : mongojs.ObjectId(id)},
+    db.svc.remove({_id : mongojs.ObjectId(id)},
             function(err,doc){
             res.json(doc);
     } );
