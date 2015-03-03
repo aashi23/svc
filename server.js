@@ -22,7 +22,7 @@ function viewback(err, data) {
 }
 
 app.get("/serviceClients",function(req,res){
-    db.svc1.find(function(err,docs){
+    db.svc.find(function(err,docs){
     res.json(docs);
     });
 });
