@@ -5,8 +5,9 @@ var fbapi = require('facebook-api');
 var client = fbapi.user(null); 
 
 
-var mongojs=require('mongojs');
-var db=mongojs("26jan",["svc1"]);
+//var mongojs=require('mongojs');
+//var db=mongojs("26jan",["svc1"]);
+var db='mongodb://aashi23:tiger@ds049537.mongolab.com:49537/svc'
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -63,11 +64,14 @@ app.delete("/serviceClients/:id",function(req,res){
     } );
 });
 
-var server = app.listen(3000, function () {
+//var server = app.listen(3000, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+  //var host = server.address().address
+  //var port = server.address().port
 
-  console.log('listening at http://%s:%s', host, port)
+  //console.log('listening at http://%s:%s', host, port)
 
-})
+//})
+
+app.listen(process.env.PORT || 5000);
+console.log("Server running on port no. 5000");
